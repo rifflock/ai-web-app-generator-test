@@ -1,0 +1,168 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 195 33% 98%;
+    --foreground: 200 47% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 47% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 47% 15%;
+
+    --primary: 195 55% 29%;
+    --primary-foreground: 195 30% 98%;
+
+    --secondary: 187 47% 56%;
+    --secondary-foreground: 200 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 195 100% 94%;
+    --accent-foreground: 200 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 195 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 195 55% 29%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 195 55% 29%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 200 47% 11%;
+    --foreground: 195 30% 98%;
+
+    --card: 200 47% 11%;
+    --card-foreground: 195 30% 98%;
+
+    --popover: 200 47% 11%;
+    --popover-foreground: 195 30% 98%;
+
+    --primary: 195 55% 29%;
+    --primary-foreground: 200 47% 11%;
+
+    --secondary: 187 47% 40%;
+    --secondary-foreground: 195 30% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 195 30% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 195 30% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 213 27% 84%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-lg;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-[1.02];
+}
+
+.water-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(224, 242, 254, 0.5) 0%,
+    rgba(186, 230, 253, 0.4) 50%,
+    rgba(147, 197, 253, 0.3) 100%
+  );
+}
+
+.nautical-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 95, 122, 0.05) 0%, 
+    rgba(87, 197, 182, 0.1) 100%
+  );
+}
+
+.sand-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(246, 238, 223, 0.8) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+}
+
+.waves-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.waves-pattern::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 56px;
+  bottom: -30px;
+  left: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%231A5F7A'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%231A5F7A'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%231A5F7A'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  animation: animate-wave 25s linear infinite;
+}
+
+@keyframes animate-wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.form-input-transition {
+  @apply transition-all duration-300 ease-out;
+}
+
+.input-focus-ring {
+  @apply focus:ring-2 focus:ring-primary/30 focus:border-primary;
+}
+
+.page-transition-container {
+  @apply w-full min-h-screen transition-opacity duration-500;
+}
+
